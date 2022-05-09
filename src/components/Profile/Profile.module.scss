@@ -1,0 +1,38 @@
+@use '/src/styles/constants/sizes';
+@use '/src/styles/constants/colors';
+@use '/src/styles/mixins/flexbox';
+
+.container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
+  margin-bottom: 30px;
+
+  .profileInfo {
+    display: flex;
+    flex-direction: column;
+    width: 70%;
+    height: 100%;
+
+    .title {
+      margin-bottom: 10px;
+      font-size: sizes.$TITLE;
+      color: colors.$TITLE;
+    }
+
+    .subTitle {
+      font-size: sizes.$SUB_TITLE;
+      color: colors.$SUB_TITLE;
+    }
+  }
+}
+
+.userProfileContainer {
+  @include flexbox.flexbox(center, center);
+  display: inline-flexbox;
+  width: 40px;
+  height: 40px;
+  background-color: red;
+  border-radius: 50%;
+}

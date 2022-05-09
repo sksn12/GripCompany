@@ -1,0 +1,25 @@
+@use '/src/styles/mixins/position';
+@use '/src/styles/mixins/flexbox';
+
+.tabBar {
+  @include position.fixed(auto auto 0 auto);
+  @include flexbox.flexbox(center, center);
+  position: absolute;
+  width: 360px;
+  height: 80px;
+  border-radius: (0 0 60px 60px);
+
+  .serachBox {
+    width: 50%;
+    height: 100%;
+    background-color: red;
+    border-radius: (0 0 0 60px);
+  }
+
+  .bookMarkBox {
+    width: 50%;
+    height: 100%;
+    background-color: blue;
+    border-radius: (0 0 60px 0);
+  }
+}
