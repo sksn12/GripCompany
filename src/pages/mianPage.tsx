@@ -1,7 +1,7 @@
 import styles from './mainPage.module.scss'
 import TabBar from 'components/TabBar/TabBar'
 import Header from 'components/Header/Header'
-import MovieList from 'components/MoiveList/MoiveList'
+import MovieList from 'components/MoiveList/MovieList'
 
 const MianPage = () => {
   return (
