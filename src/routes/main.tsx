@@ -1,5 +1,5 @@
 import styles from './Routes.module.scss'
-import MianPage from 'pages/mianPage'
+import MianPage from 'pages/MainPage'
 
 const App = () => {
   return (
