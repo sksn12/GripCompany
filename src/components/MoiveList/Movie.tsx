@@ -1,18 +1,27 @@
-import { BookMarkIcon } from 'assets/svgs'
+import { BookMarkNoneIcon } from 'assets/svgs'
 import styles from './Movie.module.scss'
+import { MovieData } from 'types/project.d'
+import defaultImg from '../../assets/image/default.png'
 
-// 오른쪽에 영화 제목, 연도, 타입이 표시됩니다.
-const Movie = () => {
+interface Props {
+  movie: MovieData
+}
+
+const Movie = ({ movie }: Props) => {
+  let PosternullCheck = movie.Poster
+
+  if (PosternullCheck === 'N/A') PosternullCheck = defaultImg
+
   return (
     <li className={styles.container}>
-      <div className={styles.movieImg} />
+      <img className={styles.movieImg} src={PosternullCheck} alt='img' />
       <div className={styles.movieInfo}>
-        <strong className={styles.movieTitle}>Iron man</strong>
-        <p className={styles.movieYear}>년도</p>
-        <p className={styles.movieType}>타입</p>
+        <strong className={styles.movieTitle}>Title : {movie.Title}</strong>
+        <dd className={styles.movieYear}>Year : {movie.Year}</dd>
+        <dd className={styles.movieType}>Type : {movie.Type}</dd>
       </div>
       <div className={styles.bookMarkBox}>
-        <BookMarkIcon />
+        <BookMarkNoneIcon />
       </div>
     </li>
   )
