@@ -17,8 +17,7 @@ const MoiveList = () => {
             <p className={styles.movieState}>{movieStateVal(movieState)}</p>
           </div>
         ) : (
-          // 같은 영화가 연속으로 불러오는 경우가 있어 키 값 중복 해결을 위한 i 사용
-          movieState.map((movie, i) => <Movie movie={movie} key={`moive-key-${movie.imdbID}-${i}`} />)
+          movieState.map((movie) => <Movie movie={movie} key={`moive-key-${movie.imdbID}`} />)
         )}
       </ul>
     </div>

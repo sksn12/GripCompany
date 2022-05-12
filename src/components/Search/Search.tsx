@@ -1,6 +1,6 @@
 import { ChangeEvent, FormEvent } from 'react'
 import { InquireSearchData } from 'services/search'
-import { useRecoilState } from 'recoil'
+import { useRecoilState, useSetRecoilState } from 'recoil'
 
 import { SearchIcon } from 'assets/svgs'
 import { InputState, MovieState } from 'state/State'
@@ -8,7 +8,7 @@ import styles from './Search.module.scss'
 
 const Search = () => {
   const [inputState, setInputState] = useRecoilState(InputState)
-  const [moiveState, setMovieState] = useRecoilState(MovieState)
+  const setMovieState = useSetRecoilState(MovieState)
 
   const onChange = (e: ChangeEvent<HTMLInputElement>) => {
     const { value } = e.currentTarget

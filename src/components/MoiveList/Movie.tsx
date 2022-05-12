@@ -3,7 +3,7 @@ import { MovieData } from 'types/project.d'
 import defaultImg from '../../assets/image/default.png'
 import BookMark from '../BookMark/BookMark'
 import { useSetRecoilState } from 'recoil'
-import { ChoiceBoxState } from 'state/State'
+import { BookMarkValueState, ChoiceBoxState } from 'state/State'
 
 export interface Props {
   movie: MovieData
@@ -11,6 +11,7 @@ export interface Props {
 
 const Movie = ({ movie }: Props) => {
   const setChocieBoxState = useSetRecoilState(ChoiceBoxState)
+  const setBookMarkValueState = useSetRecoilState(BookMarkValueState)
 
   let PosternullCheck = movie.Poster
 
@@ -18,10 +19,10 @@ const Movie = ({ movie }: Props) => {
 
   const onClick = () => {
     setChocieBoxState((prev) => !prev)
+    setBookMarkValueState(movie)
   }
 
   return (
-    // li 태그를 사용하려 했으나 onClick이벤트를 걸면 li
     <button className={styles.container} onClick={onClick} type='button'>
       <img className={styles.movieImg} src={PosternullCheck} alt='img' />
       <div className={styles.movieInfo}>
@@ -30,7 +31,7 @@ const Movie = ({ movie }: Props) => {
         <dd className={styles.movieType}>Type : {movie.Type}</dd>
       </div>
       <div className={styles.bookMarkBox}>
-        <BookMark movie={movie} />
+        <BookMark />
       </div>
     </button>
   )

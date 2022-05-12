@@ -16,3 +16,13 @@ export const ChoiceBoxState = atom<boolean>({
   key: 'choiceboxstate',
   default: false,
 })
+
+export const BookMarkBoxState = atom<boolean>({
+  key: 'bookmarkstate',
+  default: false,
+})
+
+export const BookMarkValueState = atom<MovieData | undefined>({
+  key: 'bookmarkvaluestate',
+  default: undefined,
+})
