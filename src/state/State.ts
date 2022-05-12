@@ -9,13 +9,10 @@ export const InputState = atom<string>({
 // data를 받아오거나 에러 메세지를 받아옴
 export const MovieState = atom<MovieData[] | string>({
   key: 'moviestate',
-  default: [
-    {
-      Title: '',
-      Type: '',
-      Year: '',
-      imdbID: '',
-      Poster: '',
-    },
-  ],
+  default: '',
+})
+
+export const ChoiceBoxState = atom<boolean>({
+  key: 'choiceboxstate',
+  default: false,
 })

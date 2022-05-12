@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 
-const DelayedFallback = () => {
+export const UseDelayedFallback = () => {
   const [show, setShow] = useState(false)
   useEffect(() => {
     const timeout = setTimeout(() => setShow(true), 3000)
@@ -11,4 +11,3 @@ const DelayedFallback = () => {
 
   return <div>{show && <h3>Loading ...</h3>}</div>
 }
-export default DelayedFallback
