@@ -1,5 +1,5 @@
 {
-  "extends": ["stylelint-config-standard-scss", "stylelint-config-recess-order"],
+  "extends": ["airbnb", "airbnb/hooks", "react-app", "prettier", "plugin:react/recommended", "plugin:prettier/recommended"],
   "overrides": [
     {
       "files": ["**/*.scss"],

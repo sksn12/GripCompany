@@ -3,11 +3,12 @@ import { InquireSearchData } from 'services/search'
 import { useRecoilState, useSetRecoilState } from 'recoil'
 
 import { SearchIcon } from 'assets/svgs'
-import { InputState, MovieState } from 'state/State'
+import { InputState, MovieState, ScrollInputState } from 'state/State'
 import styles from './Search.module.scss'
 
 const Search = () => {
   const [inputState, setInputState] = useRecoilState(InputState)
+  const setScrollInputState = useSetRecoilState(ScrollInputState)
   const setMovieState = useSetRecoilState(MovieState)
 
   const onChange = (e: ChangeEvent<HTMLInputElement>) => {
@@ -17,6 +18,7 @@ const Search = () => {
 
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault()
+    setScrollInputState(inputState)
 
     const Searchdata = InquireSearchData(inputState, 1)
     Searchdata.then((response) => {
