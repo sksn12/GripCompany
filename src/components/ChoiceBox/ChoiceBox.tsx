@@ -1,4 +1,4 @@
-import { useCallback } from 'react'
+import { memo, useCallback } from 'react'
 import { useRecoilValue, useSetRecoilState } from 'recoil'
 import { BookMarkBoxState, BookMarkValueState, ChoiceBoxState } from 'state/State'
 import styles from './ChoiceBox.module.scss'
@@ -41,4 +41,4 @@ const ChoiceBox = () => {
   )
 }
 
-export default ChoiceBox
+export default memo(ChoiceBox)

@@ -1,9 +1,10 @@
 import styles from './Movie.module.scss'
 import { MovieData } from 'types/project.d'
 import defaultImg from '../../assets/image/default.png'
-import BookMark from '../BookMark/BookMark'
-import { useSetRecoilState } from 'recoil'
-import { BookMarkValueState, ChoiceBoxState } from 'state/State'
+import { BookMarkIcon, BookMarkNoneIcon } from 'assets/svgs'
+import { useRecoilValue, useSetRecoilState } from 'recoil'
+import { BookMarkBoxState, BookMarkValueState, ChoiceBoxState } from 'state/State'
+import { memo } from 'react'
 
 export interface Props {
   movie: MovieData
@@ -12,6 +13,7 @@ export interface Props {
 const Movie = ({ movie }: Props) => {
   const setChocieBoxState = useSetRecoilState(ChoiceBoxState)
   const setBookMarkValueState = useSetRecoilState(BookMarkValueState)
+  const bookMarkboxState = useRecoilValue(BookMarkBoxState)
 
   let PosternullCheck = movie.Poster
 
@@ -31,10 +33,10 @@ const Movie = ({ movie }: Props) => {
         <dd className={styles.movieType}>Type : {movie.Type}</dd>
       </div>
       <div className={styles.bookMarkBox}>
-        <BookMark />
+        <div className={styles.bookMark}>{bookMarkboxState ? <BookMarkIcon /> : <BookMarkNoneIcon />}</div>
       </div>
     </button>
   )
 }
 
-export default Movie
+export default memo(Movie)

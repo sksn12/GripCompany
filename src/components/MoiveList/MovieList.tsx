@@ -20,7 +20,6 @@ const MoiveList = () => {
   const observerRef = useRef<IntersectionObserver>()
   const boxRef = useRef<HTMLDivElement>(null)
 
-  console.log(page)
   const getMoive = useCallback(() => {
     setIsLoaded(true)
     const Searchdata = InquireSearchData(scrollInputState, (page += 1))
